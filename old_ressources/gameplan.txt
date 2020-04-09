@@ -1,0 +1,78 @@
+Metriken:
+1 Glas Mische (~250ml,Verhältnis von 1:3 (Hochprozentigem:Nichtalkoholisch), also z.B. 25% Vodka): 8 Schlücke
+1 Dose Bier (500ml): 8 Schlücke
+1 Shot hochprozentigen Alkohol (35-40%): 4 Schlücke
+1 Shot gemischten Alkohol (z.B. Grüner): 2 Schlücke
+1l Wein (Tetrapak, Flasche): 32 Schlücke
+5l Wein (Kanister): Mitleid + 160 Schlücke
+1 Flasche Puschkin auf Ex: Unbezahlbar
+
+
+
+
+Spiele:
+
+
+1. Busfahren:
+Gamemaster
+Spieler sind der Reihe nach dran
+52 oder 104 Karten
+
+	kurz:
+		- Austeilrunde mit 1,2,3,4 Schlücken
+		- Pyramide zum Ablegen der Karten
+		
+	lang:
+		- Austeilrunde mit 1,1,1,1 Schlücken
+		- "Haltestelle" in H Form mit 1,2,3,4,5 Schlücken pro Karten
+		- Pyramide zum Ablegen
+		
+	Sonderregel:
+		4 schwarze Karten erhalten: 4 Schlücke trinken
+		4 rote Karten erhalten: 4 Schlücke verteilen
+		
+	Verlierer: Busfahren mit 5/6 Karten (5 bei doppeltem Deck)
+		Co-Busfahrer erst ab 5 Spielern (alternierende Anläufe)
+		Beiwagenfahrer erst ab 7 Spielern
+	
+	Busfahren+:
+		Anstatt einer Reihe aus 5/6 Karten sind 3 Reihen aus n, n-1 und n-2 Karten ausgelegt.
+		Nach jeder Reihe ist eine weitere Haltestelle(Checkpoint) erreicht, die Strafe für falsche Vorhersagen
+		fängt in jeder Reihe von vorne an.
+		
+		Für die nicht busfahrenden Mitspieler:
+		Auf erste bis n-te Karte setzen, falls korrekt dürfen entsprechend viele Schlücke verteilt werden, ansonsten müssen so viele getrunken werden.
+		In jeder Reihe wird wieder von vorne mit dem Zählen begonnen
+		
+	Regelerweiterung (Vorschlag):
+		Sagt der Busfahrer korrekt einen gleichen Kartenwert vor so müssen alle anderen Teilnehmer 1 Glas trinken
+
+2. Pferderennen
+Gamemaster
+Phasenweise:
+Erst setzen, danach nur reagieren auf deterministische Events
+
+Maximal 8 Schlücke setzbar, minimum 1 Schluck
+Rennstrecke hat 5 Stopps + Start + Ziel
+Erreicht das letzte Pferd einen Stopp so wird die Karte des entsprechenden Stopps aufgedeckt und alle Spieler
+die auf das Pferd mit dem entsprechenden Symbol gesetzt haben verteilen Schlücke entsprechend der Nummer des vom letzten Pferd erreichten Stopps.
+
+3. Fick den Dealer
+Gamemaster ist Teil des Spiels...
+Reihum interaktion mit GM
+nicht optimal
+
+4. Kings-Cup / Circle of death
+wenig sinnvoll
+
+5. Multi-Saufi
+Busfahren mit einem Kings-Cup, macht wenig Sinn
+
+6. Meiern / Mäxchen
+Würfelspiel
+
+7. Lügen
+
+8. Würfelspiel aus Fluch der Karibik
+
+9. Simulation
