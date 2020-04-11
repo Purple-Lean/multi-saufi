@@ -2,3 +2,5 @@
 !.gitignore
 bin
 .class
+id.txt
+*proprietary*
