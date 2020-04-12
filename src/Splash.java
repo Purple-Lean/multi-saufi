@@ -26,6 +26,7 @@ public class Splash extends JFrame {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
+		setUndecorated(true);
 		setTitle("Multi-Saufi");
 		setSize(screenSize.width / 2, screenSize.height / 2);
 		setLocation(screenSize.width / 4, screenSize.height / 4);
@@ -42,10 +43,12 @@ public class Splash extends JFrame {
 
 		panel.setLayout(new OverlayLayout(panel));
 
-		panel.add(label);
+		//panel.add(label);
+		
+		//System.out.println(getClass().getResource("ressources/images/splash/splash.png"));
 		
 		backgroundPanel.add(new JLabel(
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/splash/proprietary.jpg")).getScaledInstance(screenSize.width/2, screenSize.height/2, Image.SCALE_SMOOTH))));
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/splash/splash2.png")).getScaledInstance(screenSize.width/2, screenSize.height/2, Image.SCALE_SMOOTH))));
 
 		backgroundPanel.setLayout(new OverlayLayout(backgroundPanel));
 		panel.add(backgroundPanel);
@@ -73,7 +76,7 @@ public class Splash extends JFrame {
 	}
 
 	private void setIcon() {
-		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo.png")));
+		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo_1024.png")));
 		setIconImage(img.getImage());
 	}
 

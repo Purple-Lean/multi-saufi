@@ -9,7 +9,7 @@ public class Main {
 		Splash sp = new Splash();
 		
 		try {
-			TimeUnit.SECONDS.sleep(1);
+			TimeUnit.SECONDS.sleep(10);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

@@ -111,7 +111,7 @@ public class MainMenu extends JFrame {
 	}
 
 	private void setIcon() {
-		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo.png")));
+		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo_1024.png")));
 		setIconImage(img.getImage());
 	}
 
