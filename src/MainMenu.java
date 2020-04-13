@@ -26,7 +26,7 @@ public class MainMenu extends JFrame {
 	public MainMenu() {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
+		
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
 		setTitle("Multi-Saufi");
@@ -74,7 +74,7 @@ public class MainMenu extends JFrame {
 		
 		button_jg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	
+            	Client.start();
             }
         });
 		

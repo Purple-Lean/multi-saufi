@@ -45,8 +45,6 @@ public class Splash extends JFrame {
 
 		//panel.add(label);
 		
-		//System.out.println(getClass().getResource("ressources/images/splash/splash.png"));
-		
 		backgroundPanel.add(new JLabel(
 				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/splash/splash2.png")).getScaledInstance(screenSize.width/2, screenSize.height/2, Image.SCALE_SMOOTH))));
 
