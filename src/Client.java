@@ -51,16 +51,16 @@ public class Client extends JFrame {
 	bg.setLayout(new BoxLayout(bg, BoxLayout.Y_AXIS));
 	bg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 	
-	JLabel label = new JLabel("Adress:");
+	JLabel label = new JLabel("Address:");
 	label.setHorizontalAlignment(JLabel.CENTER);
 	
-	JTextField tf = new JTextField("ip/hostname:port", 25);
+	JTextField tf = new JTextField("ip/hostname:port", 100);
 
 	JPanel button_jo_p= new JPanel();
 	JPanel button_ex_p= new JPanel();
 	
 	JButton button_jo = new JButton("Connect");
-	JButton button_ex = new JButton("Quit");
+	JButton button_ex = new JButton("Abort");
 	JPanel panel = new JPanel();
 	panel.setLayout(new GridLayout(0, 2));
 	//panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
