@@ -80,7 +80,7 @@ public class MainMenu extends JFrame {
 		
 		button_hg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+                Host.start();
             }
         });
 		

@@ -30,7 +30,6 @@ public class Client extends JFrame {
 	
 	static void start() {
 		if (client == null) {
-			System.out.println("Start client");
 			client = new Client();
 		}
 	}
@@ -82,14 +81,6 @@ public class Client extends JFrame {
 	button_jo.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
         	
-        }
-    });
-	
-	button_ex.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            Component component = (Component) e.getSource();
-            JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-        	frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
         }
     });
 	
