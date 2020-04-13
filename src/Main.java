@@ -2,6 +2,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
 	
+	private static MainMenu mm = null;
+	
 	public static void main(String[] args) {
 		
 		ClientId.loadId();
@@ -17,9 +19,18 @@ public class Main {
 		sp.setVisible(false);
 		sp.dispose();
 		
-		@SuppressWarnings("unused")
-		MainMenu mm = new MainMenu();
+		startMainMenu();
 		
+	}
+	
+	public static void startMainMenu() {
+		if (mm == null) {
+			mm = new MainMenu();
+		}
+	}
+	
+	public static void closeMainMenu() {
+		mm = null;
 	}
 
 }

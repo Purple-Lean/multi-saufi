@@ -86,6 +86,7 @@ public class MainMenu extends JFrame {
 		
 		button_ex.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	Main.closeMainMenu();
                 Component component = (Component) e.getSource();
                 JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
