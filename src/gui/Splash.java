@@ -1,5 +1,6 @@
+package gui;
+
 import java.awt.AlphaComposite;
-import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -34,19 +35,13 @@ public class Splash extends JFrame {
 		JPanel backgroundPanel = new JPanel();
 		backgroundPanel.setLayout(new OverlayLayout(backgroundPanel));
 
-		JLabel label = new JLabel(
-				"<html><body>Bitte genieﬂen Sie Alkohol nur in Maﬂen und verantwortungsvoll.</body></html>");
-		label.setFont(standFont2);
-		label.setForeground(new Color((int) (Math.random()*256*256*256)));
 		JPanel panel = new JPanel();
-		panel.setName("Panel1");
 
 		panel.setLayout(new OverlayLayout(panel));
 
-		//panel.add(label);
-		
-		backgroundPanel.add(new JLabel(
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/splash/splash2.png")).getScaledInstance(screenSize.width/2, screenSize.height/2, Image.SCALE_SMOOTH))));
+		backgroundPanel.add(new JLabel(new ImageIcon(
+				Toolkit.getDefaultToolkit().getImage(getClass().getResource("../ressources/images/splash/splash2.png"))
+						.getScaledInstance(screenSize.width / 2, screenSize.height / 2, Image.SCALE_SMOOTH))));
 
 		backgroundPanel.setLayout(new OverlayLayout(backgroundPanel));
 		panel.add(backgroundPanel);
@@ -68,13 +63,13 @@ public class Splash extends JFrame {
 	private void hideCursor() {
 		BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
 
-		// Create a new blank cursor.
 		Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0, 0), "blank cursor");
 		setCursor(blankCursor);
 	}
 
 	private void setIcon() {
-		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo_1024.png")));
+		ImageIcon img = new ImageIcon(
+				Toolkit.getDefaultToolkit().getImage(getClass().getResource("../ressources/images/gui/logo_1024.png")));
 		setIconImage(img.getImage());
 	}
 

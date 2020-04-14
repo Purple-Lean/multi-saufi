@@ -1,3 +1,5 @@
+package gui;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -57,7 +59,8 @@ public class HostGamePopup extends JFrame {
 		label2.setHorizontalAlignment(JLabel.CENTER);
 		label3.setHorizontalAlignment(JLabel.CENTER);
 
-		JTextField lobby_name = new JTextField("Game-"+((int) (10000-(Math.sqrt(Math.random()*(10000*10000))))));
+		JTextField lobby_name = new JTextField(
+				"Game-" + ((int) (10000 - (Math.sqrt(Math.random() * (10000 * 10000))))));
 		JTextField tf = new JTextField("7331", 100);
 		JPasswordField jp = new JPasswordField("", 100);
 
@@ -126,13 +129,14 @@ public class HostGamePopup extends JFrame {
 
 	private void changeCursor() {
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/cursor.png"));
+		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("../ressources/images/gui/cursor.png"));
 		Cursor c = toolkit.createCustomCursor(image, new Point(0, 0), "beer");
 		setCursor(c);
 	}
 
 	private void setIcon() {
-		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo_1024.png")));
+		ImageIcon img = new ImageIcon(
+				Toolkit.getDefaultToolkit().getImage(getClass().getResource("../ressources/images/gui/logo_1024.png")));
 		setIconImage(img.getImage());
 	}
 
