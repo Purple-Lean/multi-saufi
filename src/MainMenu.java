@@ -1,10 +1,8 @@
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -12,17 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.border.EmptyBorder;
 
 
 public class MainMenu extends JFrame {
@@ -56,7 +50,7 @@ public class MainMenu extends JFrame {
 		
 		menupanel.setPreferredSize(new Dimension(screenSize.width/4, screenSize.height/4));
         menupanel.setMaximumSize(new Dimension(screenSize.width/4, screenSize.height/2));
-        menupanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        //menupanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		
         menupanel.add(button_jg);
         menupanel.add(Box.createVerticalGlue());
@@ -76,13 +70,13 @@ public class MainMenu extends JFrame {
 		
 		button_jg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	Client.start();
+            	JoinGamePopup.start();
             }
         });
 		
 		button_hg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Host.start();
+                HostGamePopup.start();
             }
         });
 		

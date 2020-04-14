@@ -22,18 +22,24 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-public class Host extends JFrame {
+public class JoinGamePopup extends JFrame {
 
-	private static final long serialVersionUID = -3525342530148793723L;
+	private static final long serialVersionUID = 5153752319840062711L;
 
-	private static Host host;
+	static JoinGamePopup client = null;
 
-	public Host() {
+	static void start() {
+		if (client == null && HostGamePopup.host == null) {
+			client = new JoinGamePopup();
+		}
+	}
+
+	public JoinGamePopup() {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-		setSize(screenSize.width / 4, screenSize.height / 4);
-		setLocation(screenSize.width * 3 / 8, screenSize.height * 3 / 8);
+		setSize(screenSize.width / 4, screenSize.height / 8);
+		setLocation(screenSize.width * 3 / 8, screenSize.height * 7 / 16);
 		// setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
 		setTitle("Multi-Saufi");
@@ -44,21 +50,20 @@ public class Host extends JFrame {
 		bg.setLayout(new BoxLayout(bg, BoxLayout.Y_AXIS));
 		bg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
-		JLabel label3 = new JLabel("Lobby-Name:");
-		JLabel label = new JLabel("Port:");
-		JLabel label2 = new JLabel("Password:");
+		JLabel label = new JLabel("Address:");
 		label.setHorizontalAlignment(JLabel.CENTER);
-		label2.setHorizontalAlignment(JLabel.CENTER);
-		label3.setHorizontalAlignment(JLabel.CENTER);
 
-		JTextField lobby_name = new JTextField("Game-"+((int) (10000-(Math.sqrt(Math.random()*(10000*10000))))));
-		JTextField tf = new JTextField("7331", 100);
-		JPasswordField jp = new JPasswordField("", 100);
+		JLabel label2 = new JLabel("Lobby-Password:");
+		label2.setHorizontalAlignment(JLabel.CENTER);
+
+		JTextField tf = new JTextField("ip/hostname:port", 100);
+
+		JPasswordField jp = new JPasswordField();
 
 		JPanel button_jo_p = new JPanel();
 		JPanel button_ex_p = new JPanel();
 
-		JButton button_jo = new JButton("Open Lobby");
+		JButton button_jo = new JButton("Connect");
 		JButton button_ex = new JButton("Abort");
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(0, 2));
@@ -67,16 +72,12 @@ public class Host extends JFrame {
 		panel.setAlignmentY(JComponent.CENTER_ALIGNMENT);
 		// panel.setPreferredSize(new Dimension(100, 100));
 
-		// button_ex_p.setBorder(new EmptyBorder(0, 0, screenSize.height/16,
-		// 0));
-		// button_jo_p.setBorder(new EmptyBorder(0, 0, screenSize.height/16,
-		// 0));
+		// button_ex_p.setBorder(new EmptyBorder(0, 0, screenSize.height/16, 0));
+		// button_jo_p.setBorder(new EmptyBorder(0, 0, screenSize.height/16, 0));
 
 		button_jo_p.add(button_jo);
 		button_ex_p.add(button_ex);
 
-		panel.add(label3);
-		panel.add(lobby_name);
 		panel.add(label);
 		panel.add(tf);
 		panel.add(label2);
@@ -107,7 +108,7 @@ public class Host extends JFrame {
 		addWindowListener(new java.awt.event.WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				Host.host = null;
+				JoinGamePopup.client = null;
 			}
 		});
 
@@ -126,14 +127,9 @@ public class Host extends JFrame {
 	}
 
 	private void setIcon() {
-		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo_1024.png")));
+		ImageIcon img = new ImageIcon(
+				Toolkit.getDefaultToolkit().getImage(getClass().getResource("ressources/images/gui/logo_1024.png")));
 		setIconImage(img.getImage());
-	}
-
-	public static void start() {
-		if (host == null) {
-			host = new Host();
-		}
 	}
 
 }
