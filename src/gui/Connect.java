@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -31,8 +30,11 @@ public class Connect extends JFrame {
 	private static Timer timer;
 	
 	static void start(String address) {
-		if (connect == null) {
-			connect = new Connect(address);
+		if (Connect.connect == null) {
+			System.out.println("Start connect");
+			Connect.connect = new Connect(address);
+		}else {
+			System.out.println("Connect is not null: "+Connect.connect);
 		}
 	}
 
@@ -88,6 +90,7 @@ public class Connect extends JFrame {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
 				Connect.connect = null;
+				System.out.println("Set connect null B "+Connect.connect);
 				timer.cancel();
 			}
 		});
@@ -98,8 +101,13 @@ public class Connect extends JFrame {
 		setIcon();
 		
 		timer = new Timer();
-		timer.scheduleAtFixedRate(new ScheduleTask(label2), 0l, 200l); 
+		timer.scheduleAtFixedRate(new ScheduleTask(label2), 0l, 200l);
 		
+
+		dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+		System.out.println("Set connect null A "+Connect.connect);
+		Connect.connect = null;
+		Lobby.start(null);
 	}
 		
 	private class ScheduleTask extends TimerTask {
