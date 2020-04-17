@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -23,6 +24,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+
+import network.Client;
 
 public class JoinGamePopup extends JFrame {
 
@@ -69,13 +72,8 @@ public class JoinGamePopup extends JFrame {
 		JButton button_ex = new JButton("Abort");
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(0, 2));
-		// panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 		panel.setAlignmentY(JComponent.CENTER_ALIGNMENT);
-		// panel.setPreferredSize(new Dimension(100, 100));
-
-		// button_ex_p.setBorder(new EmptyBorder(0, 0, screenSize.height/16, 0));
-		// button_jo_p.setBorder(new EmptyBorder(0, 0, screenSize.height/16, 0));
 
 		button_jo_p.add(button_jo);
 		button_ex_p.add(button_ex);
@@ -92,7 +90,17 @@ public class JoinGamePopup extends JFrame {
 				Component component = (Component) e.getSource();
 				JFrame frame = (JFrame) SwingUtilities.getRoot(component);
 				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-				Connect.start(tf.getText());
+				// Connect.start(tf.getText());
+				if (!Client.start(tf.getText(), new String(jp.getPassword()))) {
+					new ErrorPopup("Could not connect to server.");
+					return;
+				}
+				try {
+					Client.runHandshake();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				Lobby.start(tf.getText());
 			}
 		});
 
@@ -109,7 +117,7 @@ public class JoinGamePopup extends JFrame {
 		bg.add(panel);
 		getContentPane().add(bg);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+
 		addWindowListener(new java.awt.event.WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -126,7 +134,8 @@ public class JoinGamePopup extends JFrame {
 
 	private void changeCursor() {
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("../ressources/images/gui/cursor.png"));
+		Image image = Toolkit.getDefaultToolkit()
+				.getImage(getClass().getResource("../ressources/images/gui/cursor.png"));
 		Cursor c = toolkit.createCustomCursor(image, new Point(0, 0), "beer");
 		setCursor(c);
 	}

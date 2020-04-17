@@ -10,8 +10,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -22,29 +20,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class Connect extends JFrame {
-
-	private static final long serialVersionUID = 5622599683122069424L;
+public class ErrorPopup extends JFrame {
 	
-	static Connect connect = null;
-	private static Timer timer;
+	private static final long serialVersionUID = 6648972193325239949L;
 	
-	static void start(String address) {
-		if (Connect.connect == null) {
-			System.out.println("Start connect");
-			Connect.connect = new Connect(address);
-		}else {
-			System.out.println("Connect is not null: "+Connect.connect);
-		}
-	}
-
-	public Connect(String address) {
+	public ErrorPopup(String message) {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		
-		setSize(screenSize.width / 8, screenSize.height / 16);
+		setSize(screenSize.width / 8, -15 + screenSize.height / 16);
 		setLocation(screenSize.width * 7 / 16, screenSize.height * 15 / 32);
-		// setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
 		setTitle("Multi-Saufi");
 		setAutoRequestFocus(true);
@@ -54,15 +39,12 @@ public class Connect extends JFrame {
 		bg.setLayout(new BoxLayout(bg, BoxLayout.Y_AXIS));
 		bg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
-		JLabel label = new JLabel("Trying to reach " + address);
-		JLabel label2 = new JLabel("Connecting     ");
+		JLabel label = new JLabel(message);
 		
-		JButton button_ex = new JButton("Cancel");
+		JButton button_ex = new JButton("Okay");
 		JPanel panel = new JPanel();
 		label.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 		label.setAlignmentY(JComponent.CENTER_ALIGNMENT);
-		label2.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-		label2.setAlignmentY(JComponent.CENTER_ALIGNMENT);
 		button_ex.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 		button_ex.setAlignmentY(JComponent.CENTER_ALIGNMENT);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -70,7 +52,6 @@ public class Connect extends JFrame {
 		panel.setAlignmentY(JComponent.CENTER_ALIGNMENT);
 
 		bg.add(label);
-		bg.add(label2);
 		bg.add(button_ex);
 
 		button_ex.addActionListener(new ActionListener() {
@@ -82,52 +63,15 @@ public class Connect extends JFrame {
 		});
 
 		bg.setBorder(BorderFactory.createLineBorder(Color.black));
-		//bg.add(panel);
 		getContentPane().add(bg);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-		addWindowListener(new java.awt.event.WindowAdapter() {
-			@Override
-			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-				Connect.connect = null;
-				System.out.println("Set connect null B "+Connect.connect);
-				timer.cancel();
-			}
-		});
 
 		setVisible(true);
 
 		changeCursor();
 		setIcon();
 		
-		timer = new Timer();
-		//timer.scheduleAtFixedRate(new ScheduleTask(label2), 0l, 200l);
-		
-
-		dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-		System.out.println("Set connect null A "+Connect.connect);
-		Connect.connect = null;
-		Lobby.start(null);
 	}
-		
-	private class ScheduleTask extends TimerTask {
-		
-		JLabel b = null;
-		
-		int counter = 0;
-		
-		public ScheduleTask(JLabel b) {
-			this.b = b;
-		}
-		
-        @Override
-        public void run() {
-            b.setText("Connecting"+new String(new char[counter]).replace("\0", ".")+new String(new char[5-counter]).replace("\0", " "));
-            counter++;
-            counter = counter%6;
-        }
-        
-    }
 
 	private void changeCursor() {
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
