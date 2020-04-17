@@ -76,3 +76,8 @@ Würfelspiel
 8. Würfelspiel aus Fluch der Karibik
 
 9. Simulation
+
+10. 3 Zahlen & Abstimmen
+Ein legendäres Kartenspiel entwickelt von F. Müller tief nachts und stark betrunken...
+
+Jeder Spieler wählt 3 Zahlen zwischen 1-100, danach wird zeitgleich abgestimmt wer trinken soll (pro Person 1 Stimme), die Person mit den meisten Stimmen trinkt.
